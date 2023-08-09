@@ -1,0 +1,49 @@
+.CardContainerDetail{
+    display: inline-block;
+}
+
+.CardItemDetail{
+    position: relative;
+    width: 520px;
+    height: 760px;
+    overflow:hidden ;
+    margin: 40px 30px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow:  26px 26px 52px #ababab;
+}
+
+.CardItemDetail img{
+    position: relative;
+    top: 5px;
+    width: 400px;
+    height: 60%;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.CardNameDetail{
+    color:#000000de;
+    font-size: 20px;
+    z-index: 10;
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.CardCategoryDetail{
+    color:#000000de;
+    font-size: 15px;
+    z-index: 10;
+    margin-top: 5px;
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+.CardPriceDetail{
+    font-size: 15px;
+    color: #5a5880;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 20px;
+}
+
+

@@ -1,0 +1,13 @@
+.Greeting {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+
+}
+
+.ecommerceCardContainer {
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

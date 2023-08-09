@@ -1,0 +1,24 @@
+/* .button.is-white {
+    border: 1px solid black;
+  }
+
+*/
+
+.company-name {
+    font-weight: bold;
+    color: black;
+    font-size: 17px;
+    margin-left: 5px;
+}
+
+.navbar-item{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.company-name{
+  font-style: none;
+}
+
+.navbar-link::after {
+  border-color: red; /* Cambia el color del borde (flecha) */
+}

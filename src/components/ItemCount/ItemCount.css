@@ -1,0 +1,26 @@
+.addToCart-text{
+    color:#000000de;
+    font-family: 'Courier New', Courier, monospace; 
+    font-weight: bolder;
+    font-size: 10px;
+}
+
+.counter{
+    color:#000000de;
+    font-family: 'Courier New', Courier, monospace; 
+    font-weight: bolder;
+    font-size: 14px;
+}
+
+.AddToCart{
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    background-color:white;
+    margin-top: 15px;
+    border-radius: 20px;
+    box-shadow: none;
+}
+
+
+
