@@ -1,37 +1,54 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProductsByCategory, getProducts } from "../../asyncMock";
+
 import ItemList from "../ItemList/ItemList";
+
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../services-firebase/firebaseConfig";
 
 import './ItemListContainer.css';
 
+const ItemListContainer = ({ greeting }) => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-
-const ItemListContainer = ({greeting}) => {
-    const [products, setProducts] = useState([])
-
-    const {categoryId} = useParams()
+    const { categoryId } = useParams()
 
     useEffect(() => {
-        const asyncFunc = categoryId ? getProductsByCategory : getProducts
+        setLoading(true);
+        
+        let collectionRef = categoryId
+            ? query(collection(db, "products"), where("category", "==", categoryId))
+            : collection(db, "products")
 
-        asyncFunc(categoryId)
+        getDocs(collectionRef)
             .then(response => {
-                setProducts(response)
+                const productsAdapted = response.docs.map(doc => {
+                    const data = doc.data()
+                    return { id: doc.id, ...data }
+                })
+                setProducts(productsAdapted)
             })
-            .catch(error => {
-                console.error(error)
-            })
-    }, [categoryId])
 
-    return (
-        <div>
-            <h1 className="Greeting">{greeting}</h1>
-            <div className="ecommerceCardContainer">
-                <ItemList products={products}/>
+            .catch(error => {
+                console.log(error)
+            })
+
+            .finally(() => {
+                setLoading(false);
+
+            });
+    }, [categoryId]);
+
+        return (
+            <div>
+                <h1 className="Greeting">{greeting}</h1>
+                <div className="ecommerceCardContainer">
+                    <ItemList products={products} />
+                </div>
             </div>
-        </div>
     )
 }
 
-export default ItemListContainer
+export default ItemListContainer;
+

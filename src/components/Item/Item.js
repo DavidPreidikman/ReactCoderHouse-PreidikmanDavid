@@ -1,7 +1,7 @@
-import { NavLink, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import './Item.css';
 
-const Item = ({id, name, img, price, stock}) => {
+const Item = ({ id, name, img, price }) => {
     return(
         <div className="CardContainer">
             <article className="CardItem">
@@ -9,13 +9,14 @@ const Item = ({id, name, img, price, stock}) => {
                 <div className="CardInfo">
                     <h3 className="CardName">{name}</h3>
                     <h4 className="CardPrice">${price}</h4>
-                    <button className='CardFooter'>
-                        <Link to={`/item/${id}`} style={{ color: "black" }}>SEE DETAILS</Link>
-                    </button>
+                    <Link to={`/item/${id}`}>
+                        <button className="SeeDetails">SEE DETAILS</button>
+                    </Link>
+                    
                 </div>
             </article>
         </div>
     )
 }
 
-export default Item
+export default Item;

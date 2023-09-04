@@ -1,7 +1,22 @@
+import { useContext, useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import './ItemDetail.css';
+import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
-const ItemDetail = ({ id, name, img2, category, price, stock}) => {
+const ItemDetail = ({ id, name, img2, category, price, stock, description }) => {
+    const [quantityAdded, setQuantity] = useState(0)
+
+    const { addItem } = useContext(CartContext);
+
+    const handleOnAdd = (quantity) => {
+        setQuantity(quantity)
+
+        const item = { id, name, price }
+
+        addItem(item, quantity)
+    }
+
     return (
         <div className="CardContainerDetail">
             <article className="CardItemDetail">
@@ -10,8 +25,17 @@ const ItemDetail = ({ id, name, img2, category, price, stock}) => {
                 <div className="CardInfo">
                     <h3 className="CardCategoryDetail">{category}</h3>
                     <h4 className="CardPriceDetail">${price}</h4>
+                    <p className="CardDescriptionDetail">{description}</p>
                     <footer className="ItemFooter">
-                        <ItemCount initial={0} stock={stock} onAdd={(quantity) => console.log("Added Quantity",quantity)}/>
+                        {
+                            quantityAdded > 0 ? (
+                                <Link to="/cart">
+                                    <button className="GoToBag"> GO TO BAG</button>
+                                </Link>
+                            ) : (
+                            <ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/>
+                            )
+                        }
                     </footer>
                 </div>
             </article>
@@ -19,4 +43,4 @@ const ItemDetail = ({ id, name, img2, category, price, stock}) => {
     )
 }
 
-export default ItemDetail
+export default ItemDetail;

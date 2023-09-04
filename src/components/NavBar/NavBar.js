@@ -22,30 +22,13 @@ const NavBar = () => {
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
                 <a className="navbar-item">
-                    <NavLink to={`/category/MEN'S SHOES`} style={{ color: "black" }} isActive={(match, location) => match && location.pathname === `/category/MEN'S SHOES`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}> MEN'S SHOES</NavLink>
+                    <NavLink to={`/category/Men's Shoes`} style={{ color: "black" }} isActive={(match, location) => match && location.pathname === `/category/Men'S Shoes`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}> MEN'S</NavLink>
                 </a>
                 <a className="navbar-item">
-                    <NavLink to={`/category/WOMEN'S SHOES`} style={{ color: "black" }} isActive={(match, location) => match && location.pathname === `/category/WOMEN'S SHOES`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>WOMEN'S SHOES</NavLink>
+                    <NavLink to={`/category/Women's Shoes`} style={{ color: "black" }} isActive={(match, location) => match && location.pathname === `/category/Women's Shoes`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>WOMEN'S</NavLink>
                 </a>
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link has-text-black" style={{ color: "black" }}>
-                             MORE
-                        </a>
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                                ABOUT US
-                            </a>
-                            <a class="navbar-item">
-                                CONTACT
-                            </a>
-                            <hr class="navbar-divider"/>
-                            <a class="navbar-item">
-                                OUR BRANDS
-                            </a>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="navbar-end">
+                </div>
+                <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
                             <a class="navbar-item">
